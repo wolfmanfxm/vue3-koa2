@@ -6,6 +6,22 @@ export default {
     components: {
         Welcome
     },
+    mounted() {
+        this.$request({
+            method: 'get',
+            url: '/login',
+            data: {
+                name: 'fang'
+            }
+        }).then((res) => {
+            console.log(1, res)
+        })
+
+        // 部分项目组人员习惯此种使用方式，可给 request 函数增加属性，拓展使用
+        // this.$request.get('/login', {name: 'fang'}, {mock: true, loading: true}).then((res) => {
+        //     console.log(2, res)
+        // })
+    },
     methods: {
         goHome() {
             this.$router.push('/welcome')
