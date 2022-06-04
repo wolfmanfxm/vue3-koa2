@@ -6,7 +6,7 @@ const env = import.meta.env.MODE || 'prod';
 
 const EnvConfig = {
     dev: {
-        baseApi: '/',
+        baseApi: '/api',
         mockApi: 'https://www.fastmock.site/mock/8a45fea4ba79f24ae9c00bdb0980a56c/api'
     },
     test: {
@@ -22,7 +22,7 @@ const EnvConfig = {
 
 export default {
     env,
-    mock: true,
+    mock: false,
     namespace: 'vue3Koa2',
     ...EnvConfig[env]
 }
