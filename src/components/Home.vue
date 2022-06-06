@@ -1,16 +1,23 @@
 <script >
+import MenuTree from './MenuTree.vue'
+
 export default {
   name: 'Home',
+  components: {
+    MenuTree
+  },
   data() {
     return {
       userInfo: this.$store.state.userInfo,
       isCollapse: false,
       noticeCount: 0,
-      userMenu: []
+      userMenu: [],
+      activeMenu: location.hash.slice(1)
     }
   },
   mounted() {
     this.getNoticeCount()
+    this.getMenuList()
   },
   methods: {
     loginout(key) {
@@ -51,28 +58,9 @@ export default {
         <span>Manager</span>
       </div>
       <!-- 导航菜单 -->
-      <el-menu default-active="2" class="nav-menu" background-color="#001529" text-color="#fff" router
+      <el-menu :default-active="activeMenu" class="nav-menu" background-color="#001529" text-color="#fff" router
         :collapse="isCollapse">
-        <el-sub-menu index="1">
-          <template #title>
-            <el-icon>
-              <Grid />
-            </el-icon>
-            <span>系统管理</span>
-          </template>
-          <el-menu-item index="1-1">用户管理</el-menu-item>
-          <el-menu-item index="1-2">菜单管理</el-menu-item>
-        </el-sub-menu>
-        <el-sub-menu index="2">
-          <template #title>
-            <el-icon>
-              <document />
-            </el-icon>
-            <span>审批管理</span>
-          </template>
-          <el-menu-item index="2-1">休假申请</el-menu-item>
-          <el-menu-item index="2-2">待我审批</el-menu-item>
-        </el-sub-menu>
+        <menu-tree :userMenu="userMenu"/>
       </el-menu>
     </div>
     <div :class="['content-right', isCollapse ? 'fold' : 'unfold']">
