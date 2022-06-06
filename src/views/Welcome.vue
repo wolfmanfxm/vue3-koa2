@@ -51,7 +51,7 @@ defineProps({
     }
     .img {
         margin-left: 100px;
-        background-image: url('./../assets/images/welcome.png');
+        background-image: url('@/assets/images/welcome.png');
         width: 371px;
         height: 438px;
     }
