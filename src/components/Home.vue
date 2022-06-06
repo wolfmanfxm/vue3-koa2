@@ -1,10 +1,11 @@
 <script >
 import MenuTree from './MenuTree.vue'
+import BreadCrumbs from './BreadCrumbs.vue'
 
 export default {
   name: 'Home',
   components: {
-    MenuTree
+    MenuTree, BreadCrumbs
   },
   data() {
     return {
@@ -71,7 +72,9 @@ export default {
               <fold />
             </el-icon>
           </div>
-          <div class="bread">欢迎</div>
+          <div class="bread">
+            <BreadCrumbs />
+          </div>
         </div>
         <div class="user">
           <el-badge :is-dot="noticeCount > 0" class="notice" type="danger">

@@ -10,11 +10,11 @@ const routes = [
             title: '首页'
         },
         component: Home,
-        redirect: '/welcome',
+        redirect: 'welcome',
         children: [
             {
                 name: 'welcome',
-                path: '/welcome',
+                path: 'welcome',    // 子路由路径前面不用加 / ，与父级拼接会自动添加，若加了 / ，就为 // ，该 path 会变为绝对路径（一级路由）
                 meta: {
                     title: '欢迎'
                 },
