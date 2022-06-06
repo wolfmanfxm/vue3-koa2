@@ -12,5 +12,19 @@ export default {
             data: params,
             // mock: false
         })
+    },
+    noticeCount() {
+        return request({
+            url: '/users/counts',
+            method: 'get',
+            data: {},
+        })
+    },
+    menuList() {
+        return request({
+            url: '/menu/list',
+            method: 'get',
+            data: {},
+        })
     }
 }
