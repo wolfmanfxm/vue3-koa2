@@ -6,6 +6,7 @@ import axios from "axios";
 import config from "../config";
 import { ElMessage } from "element-plus";
 import router from "../router";
+import storage from './storage'
 
 const TOKEN_INVALID = 'Token authenticating failed, try to login again'
 const NETWORK_ERROR = 'Network request failed, please try next time'
@@ -20,7 +21,8 @@ const service = axios.create({
 service.interceptors.request.use((req) => {
     // TODO: token
     const headers = req.headers;
-    if (!headers.Authorization) headers.Authorization = 'Bear Fang'
+    const { token } = storage.getItem('userInfo')
+    if (!headers.Authorization) headers.Authorization = 'Bearer ' + token
     return req;
 })
 

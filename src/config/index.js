@@ -22,7 +22,7 @@ const EnvConfig = {
 
 export default {
     env,
-    mock: true,
+    mock: false,
     namespace: 'vue3Koa2',
     ...EnvConfig[env]
 }
