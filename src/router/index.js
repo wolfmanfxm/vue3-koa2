@@ -29,7 +29,24 @@ const routes = [
             title: '登陆'
         },
         component: () => import('@/views/Login.vue')
-
+    },
+    {
+        name: 'system',
+        path: '/system',
+        meta: {
+            title: '系统管理'
+        },
+        component: Home,
+        children: [
+            {
+                name: 'user',
+                path: 'user',    // 子路由路径前面不用加 / ，与父级拼接会自动添加，若加了 / ，就为 // ，该 path 会变为绝对路径（一级路由）
+                meta: {
+                    title: '用户管理'
+                },
+                component: () => import('@/views/User.vue'),
+            }
+        ]
     }
 ]
 

@@ -99,9 +99,7 @@ export default {
         </div>
       </div>
       <div class="wrapper">
-        <div class="main-page">
-          <router-view></router-view>
-        </div>
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -198,11 +196,6 @@ export default {
       background: #eef0f3;
       padding: 20px;
       height: calc(100vh - 50px);
-
-      .main-page {
-        background-color: #fff;
-        height: 100%;
-      }
     }
   }
 }
