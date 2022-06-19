@@ -173,7 +173,7 @@ export default {
     methods: {
         async getmenuList() {
             try {
-                const list = await this.$api.menuList();
+                const list = await this.$api.menuList(this.menu);
                 this.menuList = list;
             } catch (err) {
                 throw err

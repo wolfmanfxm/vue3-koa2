@@ -20,11 +20,11 @@ export default {
             mock: true
         })
     },
-    menuList() {
+    menuList(params) {
         return request({
             url: '/menu/list',
             method: 'get',
-            data: {},
+            data: params,
             // mock: true
         })
     },
