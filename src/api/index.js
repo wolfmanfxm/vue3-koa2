@@ -25,7 +25,14 @@ export default {
             url: '/menu/list',
             method: 'get',
             data: {},
-            mock: true
+            // mock: true
+        })
+    },
+    menuOperate(params) {
+        return request({
+            url: '/menu/operate',
+            method: 'post',
+            data: params,
         })
     },
     userList(params) {

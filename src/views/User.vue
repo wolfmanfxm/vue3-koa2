@@ -77,7 +77,7 @@
             <template #footer>
                 <span class="dialog-footer">
                     <el-button @click="handleClose">取消</el-button>
-                    <el-button type="primary" @click="handleSubmit">添加</el-button>
+                    <el-button type="primary" @click="handleSubmit">{{ action == 'add' ? '添加' : '修改' }}</el-button>
                 </span>
             </template>
         </el-dialog>

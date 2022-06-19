@@ -61,7 +61,7 @@ export default {
       <!-- 导航菜单 -->
       <el-menu :default-active="activeMenu" class="nav-menu" background-color="#001529" text-color="#fff" router
         :collapse="isCollapse">
-        <menu-tree :userMenu="userMenu"/>
+        <menu-tree :userMenu="userMenu" />
       </el-menu>
     </div>
     <div :class="['content-right', isCollapse ? 'fold' : 'unfold']">
