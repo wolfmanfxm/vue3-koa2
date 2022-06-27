@@ -63,10 +63,16 @@ export default {
     },
     roleList() {
         return request({
-            url: '/role/list',
+            url: '/roles/list',
             method: 'get',
             data: {},
-            mock: true
+        })
+    },
+    roleOperate(params) {
+        return request({
+            url: '/roles/operate',
+            method: 'post',
+            data: params,
         })
     },
     deptList() {

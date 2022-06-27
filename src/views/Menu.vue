@@ -27,9 +27,9 @@
                     :formatter="item.formatter" :width="item.width" />
                 <el-table-column label="操作" width="200">
                     <template #default="scope">
-                        <el-button link type="primary" size="small" @click="handleAdd('1', scope.row)">添加</el-button>
-                        <el-button link type="primary" size="small" @click="handleEdit(scope.row)">编辑</el-button>
-                        <el-button link type="danger" size="small" @click="handleDelete(scope.row._id)">删除</el-button>
+                        <el-button type="primary" size="small" @click="handleAdd('1', scope.row)">添加</el-button>
+                        <el-button type="primary" size="small" @click="handleEdit(scope.row)">编辑</el-button>
+                        <el-button type="danger" size="small" @click="handleDelete(scope.row._id)">删除</el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -179,13 +179,8 @@ export default {
                 throw err
             }
         },
-
         handleReset(form) {
             this.$refs[form].resetFields();     // resetFields：自带的表单重置函数，恢复到初始状态
-        },
-        handleCurrentChange(current) {
-            pager.pageNum = current;
-            this.getmenuList()
         },
         handleAdd(type, row) {
             this.showAdd = true
