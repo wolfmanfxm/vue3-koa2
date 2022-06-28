@@ -13,7 +13,7 @@
                     </el-select>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" @click="getmenuList">查询</el-button>
+                    <el-button type="primary" @click="getMenuList">查询</el-button>
                     <el-button @click="handleReset('form')">重置</el-button>
                 </el-form-item>
             </el-form>
@@ -168,10 +168,10 @@ export default {
         }
     },
     mounted() {
-        this.getmenuList()
+        this.getMenuList()
     },
     methods: {
-        async getmenuList() {
+        async getMenuList() {
             try {
                 const list = await this.$api.menuList(this.menu);
                 this.menuList = list;
@@ -202,7 +202,7 @@ export default {
         async handleDelete(_id) {
             await this.$api.menuOperate({ _id, action: 'delete' })
             this.$message.success('删除成功');
-            this.getmenuList()
+            this.getMenuList()
         },
         handleClose() {
             this.showAdd = false
@@ -215,7 +215,7 @@ export default {
                     await this.$api.menuOperate(this.addMenu)
                     this.$message.success('操作成功');
                     this.handleClose()
-                    this.getmenuList()
+                    this.getMenuList()
                 }
             })
         }

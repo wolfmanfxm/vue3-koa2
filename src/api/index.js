@@ -61,11 +61,11 @@ export default {
             data: params,
         })
     },
-    roleList() {
+    roleList(params) {
         return request({
             url: '/roles/list',
             method: 'get',
-            data: {},
+            data: params,
         })
     },
     roleOperate(params) {
@@ -75,12 +75,18 @@ export default {
             data: params,
         })
     },
-    deptList() {
+    deptList(params) {
         return request({
             url: '/dept/list',
             method: 'get',
-            data: {},
-            mock: true
+            data: params,
         })
-    }
+    },
+    deptOperate(params) {
+        return request({
+            url: '/dept/operate',
+            method: 'post',
+            data: params,
+        })
+    },
 }
