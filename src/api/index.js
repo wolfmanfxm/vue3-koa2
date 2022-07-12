@@ -28,6 +28,14 @@ export default {
             // mock: true
         })
     },
+    menuAccessList() {
+        return request({
+            url: '/menu/accessList',
+            method: 'get',
+            data: {},
+            // mock: true
+        })
+    },
     menuOperate(params) {
         return request({
             url: '/menu/operate',

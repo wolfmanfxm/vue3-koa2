@@ -24,7 +24,7 @@ export default {
     loginout(key) {
       if (key == 'email') return
       this.$store.commit('saveUserInfo', '')
-      this.userInfo = null
+      this.userInfo = {}
       this.$router.push('/login')
     },
     toggle() {
@@ -40,7 +40,7 @@ export default {
     },
     async getMenuList() {
       try {
-        const res = await this.$api.menuList();
+        const res = await this.$api.menuAccessList();
         this.userMenu = res;
       } catch (err) {
         console.error(err)
