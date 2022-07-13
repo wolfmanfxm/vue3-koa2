@@ -112,7 +112,9 @@ await loadRoutes()
 
 // 路由守卫
 router.beforeEach((to, from, next) => {
-    let hasRoute = router.getRoutes().filter(route => route.path == to.path).length
+    // getRoutes: 获取所有路由 ; hasRoute: 是否存在路由
+    // let hasRoute = router.getRoutes().filter(route => route.path == to.path).length
+    let hasRoute = router.hasRoute(to.name)
     if (hasRoute) {
         document.title = to.meta.title
         next()
