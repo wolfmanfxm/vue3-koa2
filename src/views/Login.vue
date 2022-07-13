@@ -1,4 +1,7 @@
 <script >
+import router from '../router'
+import utils from '../utils/utils'
+
 export default {
     name: 'login',
     data() {
@@ -25,12 +28,27 @@ export default {
         login() {
             this.$refs.userForm.validate((valid) => {
                 if (valid) {
-                    this.$api.login(this.user).then((res) => {
+                    this.$api.login(this.user).then(async (res) => {
                         this.$store.commit('saveUserInfo', res)
+                        await this.loadRoutes()
                         this.$router.push('welcome')
                     })
                 }
             })
+        },
+        // 登出后，新用户需加载其新的权限路由列表
+        async loadRoutes() {
+            try {
+                const menuList = await this.$api.menuAccessList()
+                let routes = utils.getRouteList(menuList)
+                routes.map(route => {
+                    let url = `./${route.component}.vue`
+                    route.component = () => import(url)
+                    router.addRoute('home', route)
+                })
+            } catch (error) {
+                console.log('routes error =>', error)
+            }
         }
     }
 }

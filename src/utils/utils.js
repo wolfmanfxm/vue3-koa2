@@ -24,9 +24,30 @@ export default {
             }
         }
         return fmt
+    },
+    // 根据菜单生成路由列表
+    getRouteList(rootList) {
+        let routes = []
+        const deepList = (list) => {
+            while (list.length) {
+                let item = list.pop()
+                if (item.action) {
+                    routes.push({
+                        name: item.component,
+                        path: item.path,
+                        meta: {
+                            title: item.menuName
+                        },
+                        component: item.component
+                    })
+                }
+                if (item.children && !item.action)
+                    deepList(item.children)
+            }
+        }
+        deepList(rootList)
+        return routes;
     }
-
-
 
 
 
