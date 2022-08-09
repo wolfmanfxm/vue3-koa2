@@ -97,4 +97,18 @@ export default {
             data: params,
         })
     },
+    leaveList(params) {
+        return request({
+            url: '/leave/list',
+            method: 'get',
+            data: params,
+        })
+    },
+    leaveOperate(params) {
+        return request({
+            url: '/leave/operate',
+            method: 'post',
+            data: params,
+        })
+    },
 }

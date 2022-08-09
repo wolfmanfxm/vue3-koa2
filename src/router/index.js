@@ -93,17 +93,17 @@ const router = createRouter({
 async function loadRoutes() {
     let userInfo = storage.getItem('userInfo') || {}
     if (userInfo.token) {
-        // try {
-        const menuList = await API.menuAccessList()
-        let routes = utils.getRouteList(menuList)
-        routes.map(route => {
-            let url = `./../views/${route.component}.vue`
-            route.component = () => import(url)
-            router.addRoute('home', route)
-        })
-        // } catch (error) {
-        //     console.log('routes error =>', error)
-        // }
+        try {
+            const menuList = await API.menuAccessList()
+            let routes = utils.getRouteList(menuList)
+            routes.map(route => {
+                let url = `./../views/${route.component}.vue`
+                route.component = () => import(url)
+                router.addRoute('home', route)
+            })
+        } catch (error) {
+            console.log('routes error =>', error)
+        }
     }
 }
 
