@@ -111,7 +111,6 @@
 </template>
 
 <script>
-import { auto } from "@popperjs/core";
 import utils from "./../utils/utils"
 
 export default {
@@ -131,7 +130,6 @@ export default {
                 leaveTime: 0
             },
             leaveDetail: {},
-            menuList: [],
             showAdd: false,
             showDetail: false,
             action: 'add',
@@ -226,15 +224,6 @@ export default {
                 const { list, page } = await this.$api.leaveList({ ...this.leave, ...this.pager });
                 this.leaveList = list;
                 this.pager = page;
-            } catch (err) {
-                throw err
-            }
-        },
-        async getmenuList() {
-            try {
-                const list = await this.$api.menuList(this.menu);
-                this.menuList = list;
-                this.getHalfActionName();
             } catch (err) {
                 throw err
             }
